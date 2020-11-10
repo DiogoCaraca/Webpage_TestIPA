@@ -1,0 +1,18 @@
+<ion-content class="ion-text-center">
+  <ion-text><h1>Personal</h1></ion-text>
+  <ion-text><h3>Ihr Team, wenn Sie Ihren Hunger stillen möchten</h3></ion-text>
+
+        <ion-slides [options]="slideOpts">
+          <ion-slide *ngFor="let person of team">
+            <ion-card>
+              <img src="../../assets/team/{{person.image}}"/>
+              <ion-card-header>
+                <ion-card-title>{{ person.name }}</ion-card-title>
+              </ion-card-header>
+
+              <ion-card-content> {{ person.role_de }} </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+</ion-content>
+<app-footer></app-footer>

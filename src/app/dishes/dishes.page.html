@@ -1,0 +1,18 @@
+<ion-content class="ion-text-center">
+  <ion-text><h1>Pizzas</h1></ion-text>
+  <ion-text><h3>Ihre Pizzas frisch und gross</h3></ion-text>
+
+        <ion-slides [options]="slideOpts">
+          <ion-slide *ngFor="let dish of dishes | async">
+            <ion-card>
+              <img src="../../assets/dishes/{{dish.filename}}" />
+              <ion-card-header>
+                <ion-card-title>{{ dish.name }}</ion-card-title>
+              </ion-card-header>
+
+              <ion-card-content> {{ dish.zutaten_de }} </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+</ion-content>
+<app-footer></app-footer>

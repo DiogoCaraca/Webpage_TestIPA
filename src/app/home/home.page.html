@@ -1,20 +1,18 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components | Github is working!!</a></p>
-  </div>
+<ion-content scroll-y="false">
+  <ion-slides
+  style="max-height: 100%;"
+    pager="true"
+    [options]="slideOpts"
+    #slideWithNav
+    (ionSlideDidChange)="SlideDidChange(slider,slideWithNav)"
+  >
+    <ion-slide style="max-height: 100% !important;" *ngFor="let image of slider.slidesItems">
+      <img
+      style="object-fit: cover; height: 100%;"
+        src="{{image.url}}"
+        alt="Oops! Pizza ran away!"
+      />
+    </ion-slide>
+  </ion-slides>
 </ion-content>
+<app-footer></app-footer>

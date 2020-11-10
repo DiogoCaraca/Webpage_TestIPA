@@ -24,3 +24,22 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-toolbar, ion-tab-bar {
+    background: rgb(0, 140, 69);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 140, 69, 1) 0%,
+      rgba(255, 255, 255, 1) 33%,
+      rgba(255, 255, 255, 1) 66%,
+      rgba(205, 33, 42, 1) 100%
+    );
+  }
+
+ion-card {
+  height: 520px;
+}
+
+h1 {
+  font-size: xx-large;
+}
