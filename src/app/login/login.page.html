@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Administration Login</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Exit</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form>
+  <ion-item>
+    <ion-label>E-Mail:</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-label>Fehler</ion-label>
+  <ion-item>
+    <ion-label>Passwort:</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-label>Fehler</ion-label>
+  <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
+</form>
+</ion-content>

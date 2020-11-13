@@ -41,20 +41,6 @@ export class HomePage {
     };
   }
 
-  //Move to Next slide
-  slideNext(object, slideView) {
-    slideView.slideNext(500).then(() => {
-      this.checkIfNavDisabled(object, slideView);
-    });
-  }
-
-  //Move to previous slide
-  slidePrev(object, slideView) {
-    slideView.slidePrev(500).then(() => {
-      this.checkIfNavDisabled(object, slideView);
-    });;
-  }
-
   //Method called when slide is changed by drag or navigation
   SlideDidChange(object, slideView) {
     this.checkIfNavDisabled(object, slideView);

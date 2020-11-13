@@ -1,10 +1,92 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>reservation</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content class="ion-text-center">
+  <ion-text><h1>Reservation</h1></ion-text>
+  <ion-text><h3>Reservieren jetzt einen Tisch</h3></ion-text>
+  <form class="ion-text-start" [formGroup]="reservationForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col offset="2" size="4">
+          <ion-item>
+            <ion-label position="floating">Vorname</ion-label>
+            <ion-input
+              formControlName="firstname"
+              type="text"
+              [class.invalid]="!reservationForm.controls.firstname.valid && (reservationForm.controls.firstname.dirty || submitAttempt)"
+            ></ion-input>
+          </ion-item>
+          <ion-label
+            class="errmsg"
+            *ngIf="!reservationForm.controls.firstname.valid  && (reservationForm.controls.firstname.dirty || submitAttempt)"
+          >
+            Bitte tragen Sie einen gültigen Vornamen ein.
+          </ion-label>
+        </ion-col>
+        <ion-col size="4">
+          <ion-range
+            formControlName="count"
+            color="success"
+            snaps="true"
+            min="1"
+            max="20"
+          >
+            <ion-label slot="start">Anzahl Personen</ion-label>
+            <ion-label class="counter" slot="end">
+              {{ reservationForm.controls.count.value }}
+            </ion-label>
+          </ion-range>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset="2" size="4">
+          <ion-item>
+            <ion-label position="floating">Nachname</ion-label>
+            <ion-input
+              formControlName="lastname"
+              type="text"
+              [class.invalid]="!reservationForm.controls.lastname.valid && (reservationForm.controls.lastname.dirty || submitAttempt)"
+            ></ion-input>
+          </ion-item>
+          <ion-label
+            class="errmsg"
+            *ngIf="!reservationForm.controls.lastname.valid  && (reservationForm.controls.lastname.dirty || submitAttempt)"
+          >
+            Bitte tragen Sie einen gültigen Nachnamen ein.
+          </ion-label>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label>Datum & Zeit</ion-label>
+            <ion-datetime
+              formControlName="datetime"
+              displayFormat="D MMM YYYY H:mm"
+              min="2020"
+              max="2030"
+              value="2020-06-17T11:06"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset="2" size="4">
+          <ion-item>
+            <ion-label position="floating">E-Mail</ion-label>
+            <ion-input
+              formControlName="email"
+              type="text"
+              [class.invalid]="!reservationForm.controls.email.valid && (reservationForm.controls.email.dirty || submitAttempt)"
+            ></ion-input>
+          </ion-item>
+          <ion-label
+            class="errmsg"
+            *ngIf="!reservationForm.controls.email.valid  && (reservationForm.controls.email.dirty || submitAttempt)"
+          >
+            Bitte tragen Sie eine gültige E-Mail ein.
+          </ion-label>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button expand="full" (click)="save()"> Reservieren </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
 <app-footer></app-footer>

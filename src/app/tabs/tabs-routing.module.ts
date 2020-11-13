@@ -13,7 +13,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../home/home.module#HomePageModule'
+            loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
           }
         ]
       },
@@ -22,7 +22,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../dishes/dishes.module#DishesPageModule'
+            loadChildren: () => import('../dishes/dishes.module').then( m => m.DishesPageModule)
           }
         ]
       },
@@ -31,7 +31,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../team/team.module#TeamPageModule'
+            loadChildren: () => import('../team/team.module').then( m => m.TeamPageModule)
           }
         ]
       },
@@ -40,7 +40,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../reservation/reservation.module#ReservationPageModule'
+            loadChildren: () => import('../reservation/reservation.module').then( m => m.ReservationPageModule)
           }
         ]
       },
@@ -49,7 +49,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../location/location.module#LocationPageModule'
+            loadChildren: () => import('../location/location.module').then( m => m.LocationPageModule)
           }
         ]
       },

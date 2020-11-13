@@ -11,6 +11,7 @@ export class TeamPage implements OnInit {
     slidesPerView: 3.5,
     initialSlide: 1,
     speed: 400,
+    autoplay: true
   };
 
   team = [

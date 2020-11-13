@@ -16,7 +16,8 @@ export class DishesPage implements OnInit {
     loop: true,
     slidesPerView: 3.5,
     initialSlide: 1,
-    speed: 400
+    speed: 400,
+    autoplay: true
   };
 
   constructor(private dishesService: DishesService, private db: AngularFireDatabase) { }
@@ -24,6 +25,5 @@ export class DishesPage implements OnInit {
   ngOnInit() {
     this.dishes = this.db.list("/Speisen/").valueChanges();
   }
-
 
 }
