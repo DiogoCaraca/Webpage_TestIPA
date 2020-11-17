@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private languageService: LanguageService) { }
 
   ngOnInit() {}
+
+  get language() {
+    return this.languageService.language;
+  }
 
 }

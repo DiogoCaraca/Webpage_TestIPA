@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Administration Login</ion-title>
+    <ion-title>{{language == 'de' ? 'Administration Login' : 'Login Amministrazione'}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="dismiss()">Exit</ion-button>
     </ion-buttons>
@@ -8,19 +8,26 @@
 </ion-header>
 
 <ion-content>
-<form>
+<form [formGroup]="loginForm">
   <ion-item>
-    <ion-label>E-Mail:</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-label>{{language == 'de' ? 'E-Mail' : 'E-mail'}}:</ion-label>
+    <ion-input formControlName="email" type="text" [class.invalid]="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)"></ion-input>
   </ion-item>
-  <ion-label>Fehler</ion-label>
+  <ion-label class="errmsg" *ngIf="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)">
+    {{language == 'de' ? 'E-Mail fehlt' : 'E-mail mancante'}}
+  </ion-label>
   <ion-item>
-    <ion-label>Passwort:</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-label>{{language == 'de' ? 'Passwort' : "Parola d'ordine"}}:</ion-label>
+    <ion-input formControlName="password" type="password" [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)"></ion-input>
   </ion-item>
-  <ion-label>Fehler</ion-label>
-  <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
-    Click me
+  <ion-label class="errmsg" *ngIf="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)">
+    {{language == 'de' ? 'Passwort fehlt' : "Parola d'ordine mancante"}}
+  </ion-label>
+  <ion-button (click)="login()" expand="block" fill="clear" shape="round">
+    {{language == 'de' ? 'Anmelden' : 'Iscriversi'}}
   </ion-button>
+  <ion-label class="errmsg" *ngIf="error">
+    {{ error }}
+  </ion-label>
 </form>
 </ion-content>

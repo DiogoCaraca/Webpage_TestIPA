@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-location',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocationPage implements OnInit {
 
-  constructor() { }
+  constructor(private languageService: LanguageService) { }
 
   ngOnInit() {
+  }
+
+  get language() {
+    return this.languageService.language;
   }
 
 }

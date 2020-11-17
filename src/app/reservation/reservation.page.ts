@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFireDatabase } from '@angular/fire/database';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: "app-reservation",
@@ -11,7 +12,7 @@ export class ReservationPage implements OnInit {
   public reservationForm: FormGroup;
   public submitAttempt: boolean = false;
 
-  constructor(public formBuilder: FormBuilder, private db: AngularFireDatabase) {
+  constructor(public formBuilder: FormBuilder, private db: AngularFireDatabase, private languageService: LanguageService) {
     this.reservationForm = formBuilder.group({
       firstname: [
         "",
@@ -51,6 +52,10 @@ export class ReservationPage implements OnInit {
   }
 
   ngOnInit() {}
+
+  get language() {
+    return this.languageService.language;
+  }
 
   save() {
     this.submitAttempt = true;

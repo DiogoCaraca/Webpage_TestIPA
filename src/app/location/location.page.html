@@ -1,6 +1,14 @@
 <ion-content class="ion-text-center" style="display: flex; align-items: center; justify-content: center;">
-  <ion-text><h1>Standort</h1></ion-text>
-  <ion-text><h3>So finden Sie uns</h3></ion-text>
+  <ion-text>
+    <h1>
+      {{language == 'de' ? 'Standort' : 'Posizione'}}
+    </h1>
+  </ion-text>
+  <ion-text>
+    <h3>
+      {{language == 'de' ? 'So finden Sie uns' : 'Come trovarci'}}
+    </h3>
+  </ion-text>
   <ion-grid>
     <ion-row class="ion-align-items-center">
       <ion-col>
@@ -16,10 +24,30 @@
         ></iframe>
       </ion-col>
       <ion-col class="ion-text-start">
-        <ion-text><h3><b>Adresse</b></h3></ion-text>
-        <ion-text><h3>Steinenvorstadt 71, 4051 Basel</h3></ion-text>
-        <ion-text><h3><b>Telefon</b></h3></ion-text>
-        <ion-text><h3>+41 61 123 45 67</h3></ion-text>
+        <ion-text>
+          <h3>
+            <b>
+              {{language == 'de' ? 'Adresse' : 'Indirizzo'}}
+            </b>
+          </h3>
+        </ion-text>
+        <ion-text>
+          <h3>
+            Steinenvorstadt 71, 4051 {{language == 'de' ? 'Basel' : 'Basilea'}}
+          </h3>
+        </ion-text>
+        <ion-text>
+          <h3>
+            <b>
+              {{language == 'de' ? 'Telefon' : 'Telefono'}}
+            </b>
+          </h3>
+        </ion-text>
+        <ion-text>
+          <h3>
+            +41 61 123 45 67
+          </h3>
+        </ion-text>
       </ion-col>
     </ion-row>
   </ion-grid>

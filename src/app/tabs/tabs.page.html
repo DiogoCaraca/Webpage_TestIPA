@@ -2,38 +2,52 @@
 <ion-tabs>
   <ion-header style="z-index: 0; text-align: center;">
     <ion-toolbar color="none">
+        <ion-item style="display: inline-flex; left: 4px; top: 10px; float: left;">
+          <ion-select value="de" interface="popover" (ionChange)="languageChange($event)">
+            <ion-select-option value="it">it</ion-select-option>
+            <ion-select-option value="de">de</ion-select-option>
+          </ion-select>
+        </ion-item>
       <ion-title> <h1>Piastre di grandi dimensioni</h1> </ion-title>
       <ion-buttons slot="end">
-        <ion-button color="light" fill="solid" (click)="loginModal()">
-          Anmelden
+        <ion-button *ngIf="admin" color="light" fill="solid" (click)="logout()">
+          {{language == 'de' ? 'Abmelden' : 'Disconnettiti'}}
         </ion-button>
+        <ion-button *ngIf="!admin" color="light" fill="solid" (click)="loginModal()">
+          {{language == 'de' ? 'Anmelden' : 'Accesso'}}
+        </ion-button>        
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
   <ion-tab-bar slot="top" color="none">
     <ion-tab-button tab="home">
       <ion-icon name="home"></ion-icon>
-      <ion-label>Startseite</ion-label>
+      <ion-label>Homepage</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="dishes">
       <ion-icon name="pizza"></ion-icon>
-      <ion-label>Pizzas</ion-label>
+      <ion-label>{{language == 'de' ? 'Pizzas' : 'Pizze'}}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="team">
       <ion-icon name="people"></ion-icon>
-      <ion-label>Personal</ion-label>
+      <ion-label>{{language == 'de' ? 'Personal' : 'Personale'}}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="reservation">
       <ion-icon name="calendar"></ion-icon>
-      <ion-label>Reservation</ion-label>
+      <ion-label>{{language == 'de' ? 'Reservation' : 'Prenotazione'}}</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="location">
       <ion-icon name="location"></ion-icon>
-      <ion-label>Standort</ion-label>
+      <ion-label>{{language == 'de' ? 'Standort' : 'Posizione'}}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="statistics" *ngIf="admin">
+      <ion-icon name="stats-chart"></ion-icon>
+      <ion-label>{{language == 'de' ? 'Statistiken' : 'Statistiche'}}</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

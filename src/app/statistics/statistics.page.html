@@ -1,0 +1,68 @@
+<ion-content class="ion-text-center">
+  <ion-text>
+    <h1>
+      {{language == 'de' ? 'Statistiken' : 'Statistiche'}}
+    </h1>
+  </ion-text>
+  <ion-grid>
+    <ion-row>
+      <ion-col offset="2" size="4">
+        <ion-item>
+          <h3>
+            {{language == 'de' ? 'Tischreservationen' : 'Prenotazioni dei tavoli'}}
+          </h3>
+        </ion-item>
+        <ion-list class="listscroll">
+          <ion-item *ngFor="let res of reservations">
+            <div>
+              <h3>{{res.firstname}} {{res.lastname}}</h3>
+              <ion-label>{{ res.email }}</ion-label>
+              <ion-label>{{ res.datetime }}</ion-label>
+            </div>
+            <div slot="end" style="display: inline-flex">
+              <ion-icon style="height: 24px;" name="person"></ion-icon>
+              <h4 style="margin: 0 0 0 10px;">{{ res.count }}</h4>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col size="4" id="menulist">
+        <ion-item>
+          <h3>
+            {{language == 'de' ? 'Menü Ranking' : 'Classifica dei menu'}}
+          </h3>
+        <ion-buttons slot="end">
+          <ion-button (click)="print('menulist')">
+            <ion-icon name="print"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+        <ion-list class="listscroll">
+          <ion-item *ngFor="let dish of (dishes | async)?.slice().reverse()">
+            <h3>{{dish.name}}</h3>
+            <div slot="end" style="display: inline-flex">
+              <ion-icon style="height: 24px;" name="restaurant"></ion-icon>
+              <h4 style="margin: 0 0 0 10px;">{{ dish.bestellungen }}</h4>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col offset="2" size="8">
+        <ion-text>
+          <h3>
+            {{language == 'de' ? 'Belegung' : 'Assegnazione'}}
+          </h3>
+        </ion-text>
+        <ion-text>
+          <h4>
+            {{language == 'de' ? 'Aktuelle Woche' : 'Settimana corrente'}}
+          </h4>
+        </ion-text>
+        <canvas #barCanvas style="position: relative; height:20vh; width:40vw"></canvas>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<app-footer></app-footer>
